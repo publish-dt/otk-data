@@ -1,6 +1,6 @@
 name: IPFS 2
 
-on: [push,workflow_dispatch]
+on: [workflow_dispatch]
 #on: [push]
 
 jobs:
@@ -9,28 +9,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
   
-    - name: Setup Node
-      uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
-  
-    - uses: aquiladev/ipfs-action@master
-      id: upload
-      with:
-        path: ./
-        service: filebase
-        pinName: 'ipfs-action'
-        filebaseBucket: ${{ secrets.FILEBASE_BUCKET }}
-        filebaseKey: ${{ secrets.FILEBASE_KEY }}
-        filebaseSecret: ${{ secrets.FILEBASE_SECRET }}
+    - run: curl --version
 
-    - run: echo "test 01"
-    - run: echo "${{ steps.upload.outputs.hash }}"
-
-    - uses: aquiladev/ipfs-action@master
-      with:
-        path: ./
-        service: pinata
-        pinataKey: ${{ secrets.PINATA_KEY }}
-        pinataSecret: ${{ secrets.PINATA_SECRET }}
 
