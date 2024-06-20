@@ -1,6 +1,7 @@
 name: IPFS Filebase
 
-on: [push]
+on: workflow_dispatch
+#on: [push]
 
 jobs:
   pin_to_ipfs:
