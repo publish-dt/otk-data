@@ -14,6 +14,6 @@ jobs:
       uses: alexanderschau/ipfs-pinning-action@v1.1.0
       with:
         path_to_add: '/' 
-        endpoint: ${{ secrets.SECRET_ENDPOINT_1 }}
-        access_token: ${{ secrets.FILEBASE_SECRET_KEY }} 
+        endpoint: ${{ secrets.SECRET_ENDPOINT_2 }}
+        access_token: ${{ secrets.SECRET_KEY_2 }} 
         pin_name: 'otk-data'
