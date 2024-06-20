@@ -1,3 +1,5 @@
+name: IPFS Filebase
+
 on: [push]
 
 jobs:
@@ -8,9 +10,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: IPFS Publish
       id: IPFS
-      uses: alexanderschau/ipfs-pinning-action@v1.0.0
+      uses: alexanderschau/ipfs-pinning-action@v1.1.0
       with:
         path_to_add: '/' 
         endpoint: 'https://api.filebase.io/v1/ipfs/pins'
-        access_token: ${{ secrets.ACCESS_TOKEN }} 
+        access_token: ${{ secrets.FILEBASE_SECRET_KEY }} 
         pin_name: 'otk-data'
