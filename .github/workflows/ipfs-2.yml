@@ -18,7 +18,7 @@ jobs:
   
 #    - run: npm run build
 
-    - uses: aquiladev/ipfs-action@v1
+    - uses: aquiladev/ipfs-action@master
       with:
         path: ./
         service: filebase
