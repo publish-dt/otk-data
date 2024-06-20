@@ -30,7 +30,3 @@ jobs:
         pinataKey: ${{ secrets.PINATA_KEY }}
         pinataSecret: ${{ secrets.PINATA_SECRET }}
 
-    - uses: aquiladev/ipfs-action@master
-      with:
-        path: ./
-        service: infura
