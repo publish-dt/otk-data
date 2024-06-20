@@ -15,6 +15,7 @@ jobs:
         node-version: '10.x'
   
     - uses: aquiladev/ipfs-action@master
+      id: upload
       with:
         path: ./
         service: filebase
@@ -22,6 +23,9 @@ jobs:
         filebaseBucket: ${{ secrets.FILEBASE_BUCKET }}
         filebaseKey: ${{ secrets.FILEBASE_KEY }}
         filebaseSecret: ${{ secrets.FILEBASE_SECRET }}
+
+    - run: echo "test 01"
+    - run: echo "${{ steps.upload.outputs.hash }}"
 
     - uses: aquiladev/ipfs-action@master
       with:
