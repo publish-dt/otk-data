@@ -1,4 +1,4 @@
-name: IPFS 1
+name: IPFS 2
 
 on: workflow_dispatch
 #on: [push]
