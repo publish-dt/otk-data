@@ -14,10 +14,6 @@ jobs:
       with:
         node-version: '10.x'
   
-#    - run: npm ci
-  
-#    - run: npm run build
-
     - uses: aquiladev/ipfs-action@master
       with:
         path: ./
@@ -33,3 +29,8 @@ jobs:
         service: pinata
         pinataKey: ${{ secrets.PINATA_KEY }}
         pinataSecret: ${{ secrets.PINATA_SECRET }}
+
+    - uses: aquiladev/ipfs-action@master
+      with:
+        path: ./build
+        service: infura
