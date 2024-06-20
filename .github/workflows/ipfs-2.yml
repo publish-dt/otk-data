@@ -32,5 +32,5 @@ jobs:
 
     - uses: aquiladev/ipfs-action@master
       with:
-        path: ./build
+        path: ./
         service: infura
