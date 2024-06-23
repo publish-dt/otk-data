@@ -20,11 +20,11 @@ jobs:
 #        filebaseSecret: ${{ secrets.FILEBASE_SECRET }}
 
     - uses: aquiladev/ipfs-action@master
-      id: upload
+      #id: upload
       with:
         path: ./
         service: pinata
         pinataKey: ${{ secrets.PINATA_KEY }}
         pinataSecret: ${{ secrets.PINATA_SECRET }}
 
-    - run: curl -H "Content-Type:application/json" -H "apikey:${{ secrets.FREEDOMAIN_API_KEY }}" -H "domain:${{ secrets.FREEDOMAIN_DOMAIN }}" --data "{\"update\":{\"type\":\"TXT\",\"name\":\"_dnslink.otk-data.publicvm.com.\",\"content\":\"dnslink=/ipfs/${{ steps.upload.outputs.hash }}\",\"ttl\":0,\"overwrite\":true}}" https://api.dnsexit.com/dns/
+    #- run: curl -H "Content-Type:application/json" -H "apikey:${{ secrets.FREEDOMAIN_API_KEY }}" -H "domain:${{ secrets.FREEDOMAIN_DOMAIN }}" --data "{\"update\":{\"type\":\"TXT\",\"name\":\"_dnslink.otk-data.publicvm.com.\",\"content\":\"dnslink=/ipfs/${{ steps.upload.outputs.hash }}\",\"ttl\":0,\"overwrite\":true}}" https://api.dnsexit.com/dns/
