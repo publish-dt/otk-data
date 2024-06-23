@@ -1,4 +1,4 @@
-name: IPFS 2
+name: IPFS
 
 on: [workflow_dispatch]
 #on: [push]
@@ -9,8 +9,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: aquiladev/ipfs-action@0.3.1
-      #id: upload
+    - uses: aquiladev/ipfs-action@master
+      id: upload
       with:
         path: ./
         service: filebase
@@ -20,10 +20,11 @@ jobs:
         filebaseSecret: ${{ secrets.FILEBASE_SECRET }}
 
     - uses: aquiladev/ipfs-action@master
-      #id: upload
+      id: upload2
       with:
         path: ./
         service: pinata
+        pinName: 'otk-data'
         pinataKey: ${{ secrets.PINATA_KEY }}
         pinataSecret: ${{ secrets.PINATA_SECRET }}
 
