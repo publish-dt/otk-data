@@ -1,6 +1,6 @@
 name: IPFS
 
-on: [workflow_dispatch]
+on: [push,workflow_dispatch]
 #on: [push]
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
     - uses: aquiladev/ipfs-action@master
       id: upload_
       with:
-        path: ./
+        path: ./exp
         service: filebase
         pinName: 'otk-data'
         filebaseBucket: ${{ secrets.FILEBASE_BUCKET }}
@@ -33,7 +33,7 @@ jobs:
       id: upload
       with:
         pin-name: 'otk-data'
-        path: './'
+        path: './exp'
         pinata-api-key: ${{ secrets.PINATA_KEY }}
         pinata-secret-api-key: ${{ secrets.PINATA_SECRET }}
         verbose: false
