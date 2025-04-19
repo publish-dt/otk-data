@@ -3,13 +3,14 @@
 
 name: Deploy to Firebase Hosting
 
+on: [push,workflow_dispatch]
 #on: pull_request
-on:
-  push:
-    branches: [main]
-    # Optionally configure to run only for specific files. For example:
-    paths:
-      - "exp/**"    
+#on:
+#  push:
+#    branches: [main]
+#    # Optionally configure to run only for specific files. For example:
+#    paths:
+#      - "exp/**"    
     
 jobs:
   deploy_live_website:
