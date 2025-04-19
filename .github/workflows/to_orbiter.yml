@@ -2,8 +2,13 @@ name: Deploy to Orbiter
 
 #on: workflow_dispatch
 on:
+  workflow_dispatch:
+  
   push:
     branches: [main]
+    # Optionally configure to run only for specific files. For example:
+    paths:
+      - "exp/**" 
 
 jobs:
   deploy:
