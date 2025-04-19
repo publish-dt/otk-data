@@ -3,14 +3,16 @@
 
 name: Deploy to Firebase Hosting
 
-on: [push,workflow_dispatch]
+#on: [push,workflow_dispatch]
 #on: pull_request
-#on:
-#  push:
-#    branches: [main]
-#    # Optionally configure to run only for specific files. For example:
-#    paths:
-#      - "exp/**"    
+on:
+  workflow_dispatch:
+  
+  push:
+    branches: [main]
+    # Optionally configure to run only for specific files. For example:
+    paths:
+      - "exp/**"    
     
 jobs:
   deploy_live_website:
@@ -22,3 +24,4 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_OTK_DATA }}
           projectId: otk-data
           channelId: live
+          entryPoint: other
