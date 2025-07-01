@@ -1,0 +1,26 @@
+name: Отправка в S3 Yandex
+
+on:
+  workflow_dispatch:
+  
+  push:
+    branches: [main]
+    # Optionally configure to run only for specific files. For example:
+    paths:
+      - "exp/**" 
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: jakejarvis/s3-sync-action@master
+      with:
+        args: --acl public-read --follow-symlinks --delete
+      env:
+        AWS_S3_BUCKET: ${{ secrets.YAND_S3_BUCKET }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.YAND_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.YAND_SECRET_ACCESS_KEY }}
+        AWS_S3_ENDPOINT: 'https://storage.yandexcloud.net/'
+        AWS_REGION: 'ru-central-1'   # optional: defaults to us-east-1
+        SOURCE_DIR: 'exp'      # optional: defaults to entire repository
