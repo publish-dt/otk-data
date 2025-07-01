@@ -1,9 +1,13 @@
 name: Отправка в S3 Cloud.ru
 
 on:
+  workflow_dispatch:
+  
   push:
-    branches:
-    - main
+    branches: [main]
+    # Optionally configure to run only for specific files. For example:
+    paths:
+      - "exp/**" 
 
 jobs:
   deploy:
