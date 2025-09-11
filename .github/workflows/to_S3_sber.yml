@@ -2,6 +2,11 @@ name: Отправка в S3 Cloud.ru
 
 on:
   workflow_dispatch:
+    inputs:
+      postfix:
+              description: 't'
+              required: false
+              type: string
   
   push:
     branches: [main]
