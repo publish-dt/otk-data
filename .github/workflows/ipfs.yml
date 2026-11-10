@@ -16,15 +16,15 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: aquiladev/ipfs-action@master
-      id: upload_
-      with:
-        path: ./exp
-        service: filebase
-        pinName: 'otk-data'
-        filebaseBucket: ${{ secrets.FILEBASE_BUCKET }}
-        filebaseKey: ${{ secrets.FILEBASE_KEY }}
-        filebaseSecret: ${{ secrets.FILEBASE_SECRET }}
+    #- uses: aquiladev/ipfs-action@master
+    #  id: upload_
+    #  with:
+    #    path: ./exp
+    #    service: filebase
+    #    pinName: 'otk-data'
+    #    filebaseBucket: ${{ secrets.FILEBASE_BUCKET }}
+    #    filebaseKey: ${{ secrets.FILEBASE_KEY }}
+    #    filebaseSecret: ${{ secrets.FILEBASE_SECRET }}
 
     - uses: anantaramdas/ipfs-pinata-deploy-action@v1.6.4
       id: upload
@@ -36,4 +36,4 @@ jobs:
         verbose: false
         remove-old: true
         
-    - run: curl -H "Content-Type:application/json" -H "apikey:${{ secrets.FREEDOMAIN_API_KEY }}" -H "domain:${{ secrets.FREEDOMAIN_DOMAIN }}" --data "{\"update\":{\"type\":\"TXT\",\"name\":\"_dnslink.otk-data.publicvm.com.\",\"content\":\"dnslink=/ipfs/${{ steps.upload.outputs.hash }}\",\"ttl\":0,\"overwrite\":true}}" https://api.dnsexit.com/dns/
+    #- run: curl -H "Content-Type:application/json" -H "apikey:${{ secrets.FREEDOMAIN_API_KEY }}" -H "domain:${{ secrets.FREEDOMAIN_DOMAIN }}" --data "{\"update\":{\"type\":\"TXT\",\"name\":\"_dnslink.otk-data.publicvm.com.\",\"content\":\"dnslink=/ipfs/${{ steps.upload.outputs.hash }}\",\"ttl\":0,\"overwrite\":true}}" https://api.dnsexit.com/dns/
