@@ -16,15 +16,15 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    #- uses: aquiladev/ipfs-action@master
-    #  id: upload_
-    #  with:
-    #    path: ./exp
-    #    service: filebase
-    #    pinName: 'otk-data'
-    #    filebaseBucket: ${{ secrets.FILEBASE_BUCKET }}
-    #    filebaseKey: ${{ secrets.FILEBASE_KEY }}
-    #    filebaseSecret: ${{ secrets.FILEBASE_SECRET }}
+    - uses: aquiladev/ipfs-action@master
+      id: upload_
+      with:
+        path: ./exp
+        service: filebase
+        pinName: 'otk-data'
+        filebaseBucket: ${{ secrets.FILEBASE_BUCKET }}
+        filebaseKey: ${{ secrets.FILEBASE_KEY }}
+        filebaseSecret: ${{ secrets.FILEBASE_SECRET }}
 
     - uses: anantaramdas/ipfs-pinata-deploy-action@v1.6.4
       id: upload
